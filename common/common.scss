@@ -1,47 +1,220 @@
-//use Roboto font
+/* use Roboto font */
 html {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
 }
 
 body input,
 body button,
 body select,
 body textarea {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
-@mixin boxShadow {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 0 0 0 rgba(0, 0, 0, 0.12);
+.fa-heart:before {
+    content: "\f164";
 }
 
-@mixin buttonShadow {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+/* Custom Header */
+header.d-header {
+    /* min-height: 4.2857em; */
+    min-height: 82px;
+    height: unset;
+    position: sticky !important;
+    top: 0;
+    padding: 0;
 }
 
-//raise and round buttons
-.btn {
-  border-radius: 2px;
-  @include boxShadow;
+#main-outlet {
+    padding-top: 0;
 }
 
-//remove shadow from a few buttons
-.d-editor-button-bar .btn,
-.bulk-select-all,
-.bulk-clear-all,
-.period-chooser-header,
-.topic-map .btn.no-text,
-.badge-section .btn,
-#revision .btn,
-#new-account-link,
-#login-link {
-  border-radius: 0;
-  box-shadow: none;
+.d-header .wrap {
+    display: flex;
+    height: initial;
+    width: 90%;
+    max-width: 1170px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
 }
 
-//No more image cropping
-#reply-control .d-editor-preview img:not(.thumbnail):not(.emoji),
-.cooked img:not(.thumbnail):not(.emoji) {
-  max-width: 100% !important;
-  height: auto;
+@media (max-width: 1039px) {
+    .d-header .wrap {
+        width: 98%!important;
+    }
+}
+@media (max-width: 1139px) {
+    .d-header .wrap {
+        width: 95%!important;
+    }
+}
+
+.d-header .wrap .contents {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.d-header .wrap .contents .title {
+    /* width: 15%!important; */
+    display: flex;
+    flex: 1 1;
+}
+
+.d-header .wrap .contents .title > a {
+    margin: 22px 0 10px 0;
+    width: 130px;
+    height: 50px;
+    display: flex;
+}
+
+.d-header .wrap .contents .title > a img {
+    width: 100%;
+    max-height: 34.59px !important;
+}
+
+
+
+
+
+.navbar-nav {
+    display: flex;
+    float: left;
+    /* flex: 1; */
+    margin-bottom: 0;
+    justify-content: center;
+    width: 640px;
+}
+
+.navbar-nav {
+    /* margin-left: 0 !important; */
+}
+
+.navbar-nav:first-child {
+    display: block !important;
+}
+
+.nav_icons.navbar-nav {
+    /* width: 800px; */
+}
+
+.nav_icons.navbar-nav.nav-right {
+    float: left !important;
+}
+
+.nav>li {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav_icons li:last-child {
+    margin-right: 0;
+}
+
+.navbar-nav>li>a {
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.navbar-nav>li>a img,
+.navbar-default .navbar-nav>li>a svg {
+    opacity: .5;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    padding: 0 5px 0 10px;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: -15px;
+    padding-top: 17px;
+    white-space: nowrap;
+}
+
+.navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+    background-color: transparent !important;
+}
+
+.navbar-nav>li>a span {
+    /* display: flex;
+    align-items: center; */
+}
+
+.navbar-nav>li>a:hover span {
+    border-bottom: 2px solid #FFF;
+    padding-bottom: 6px;
+}
+
+@media (max-width: 767px) {
+    .navbar-nav>li>a:hover span {
+        border-bottom: 0 none;
+        padding-bottom: unset;
+        text-decoration: underline;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav_icons.navbar-nav {
+        /* margin: 0 auto;
+        float: none;
+        display: table-cell;
+        padding-left: 0; */
+    }
+
+    ul.nav_icons li {
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 991px) {
+    .nav_icons.navbar-nav {
+        /* width: 800px !important; */
+    }
+}
+
+@media (max-width: 840px) {
+    .nav_icons.navbar-nav {}
+
+    ul.nav_icons li {
+        margin-right: 10px;
+    }
+
+    .navbar-nav>li>a.usermenu {
+        margin-right: -15px;
+    }
+
+    ul.nav.navbar-nav.navbar-right {
+        max-width: 210px;
+    }
+}
+
+@media (max-width: 1060px) {
+    .d-header .wrap .contents,
+    .d-header .wrap .contents .title {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-nav {
+        margin: 0 0 10px 0;
+        flex-wrap: wrap;
+        width: 100vw;
+    }
+}
+
+@media (max-width: 580px) {
+    .navbar-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav>li {
+        padding: 3px 0;
+    }
 }
