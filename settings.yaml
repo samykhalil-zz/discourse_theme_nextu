@@ -1,0 +1,3 @@
+forum_es:
+  type: string
+  default: forum_es_val
