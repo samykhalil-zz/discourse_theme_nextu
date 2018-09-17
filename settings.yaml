@@ -4,3 +4,7 @@ forum_es:
 forum_en:
   type: string
   default: forum_en_val
+ 
+forum_br:
+  type: string
+  default: forum_pt_BR_val
