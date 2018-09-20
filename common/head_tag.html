@@ -6,9 +6,11 @@
     var forum={
     en: settings.forum_en,
     es: settings.forum_es,
-    br: settings.forum_br,
+    pt_BR: settings.forum_br,
 };
- alert(forum[currentLocale] );  
+
+localStorage.setItem("localeInfo", currentLocale);
+
 </script>
 
 
@@ -16,6 +18,22 @@
 <script>
 
     $(function() {
+
+        let locale = localStorage.getItem("localeInfo");
+        menus = {
+            "en": ["Home", "Your Certificates", "Tutor Café", "Forum"],
+            "es": ["Inicio", "Tus Certificados", "Tutor Café", "Forum"],
+            "pt_BR": ["Página Inicial", "Seus Certificados", "Tutor Café", "Forum"]
+        }
+        
+        
+        if (!locale || !menus[locale]) {
+            locale = "en";
+        }
+        currentMenu = menus[locale];
+
+
+
         // Change the logo link
         $('.d-header .wrap .contents .title a').attr("href", "//learn.ops.nextu.com")
     
@@ -27,27 +45,26 @@
         $headerMenuObj = $(`<ul class="nav nav_icons navbar-nav">
                     <li>
                         <a href="https://learn.ops.nextu.com" class="nav-li-home">
-                            <span class="hidden-sm"><img src="//learn.nextu.com/theme/cerulean/pix/icon-home.png" alt="home" style="height:20px;width:auto;top:-2px;">Home</span>
+                            <span class="hidden-sm"><img src="//learn.nextu.com/theme/cerulean/pix/icon-home.png" alt="home" style="height:20px;width:auto;top:-2px;">` + currentMenu[0] + `</span>
                         </a>
                     </li>
     
                     <li>
                         <a href="https://learn.ops.nextu.com/local/nextu_structure/certificates.php" class="nav-li-your-certs">
-                            <span class="hidden-sm"><img src="//learn.nextu.com/theme/cerulean/pix/icon-cap.png" alt="cap" style="height:20px;width:auto;top:-2px;">Your
-                                Certificates</span>
+                            <span class="hidden-sm"><img src="//learn.nextu.com/theme/cerulean/pix/icon-cap.png" alt="cap" style="height:20px;width:auto;top:-2px;">` + currentMenu[1] + `</span>
                         </a>
                     </li>
     
                     <li>
                         <a href="https://learn.ops.nextu.com/local/tutorcafe" class="nav-li-tutor-cafe">
                             <span class="hidden-sm" data-identifyelement="3"><img src="//learn.ops.nextu.com/theme/cerulean/pix/icon-cafe.png" alt="cafe"
-                                    style="height:24px;width:auto;top:-3px;">Tutor Café</span>
+                                    style="height:24px;width:auto;top:-3px;">` + currentMenu[2] + `</span>
                         </a>
                     </li>
     
                     <li>
                         <a href="//forum.nextu.com" style="color: #19e77a;">
-                            <span class="hidden-sm"><img src="//learn.ops.nextu.com/theme/cerulean/pix/nu_forum_icon.png" alt="cafe" style="height:24px;width:auto;top:-1px;">Forum</span>
+                            <span class="hidden-sm"><img src="//learn.ops.nextu.com/theme/cerulean/pix/nu_forum_icon.png" alt="cafe" style="height:24px;width:auto;top:-1px;">` + currentMenu[3] + `</span>
                         </a>
                     </li>
     
