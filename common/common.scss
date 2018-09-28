@@ -11,6 +11,10 @@ body textarea {
     font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
+section#main {
+    overflow-x: hidden;
+}
+
 .fa-heart:before {
     content: "\f164";
 }
